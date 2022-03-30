@@ -14,17 +14,16 @@ export default function Movie(props) {
       .get(`http://localhost:5001/api/movies/${id}`) // Study this endpoint with Postman
       .then(response => {
         // Study this response with a breakpoint or log statements
-        console.log(response);
+        console.log(response.data);
         // and set the response data as the 'movie' slice of 
         setMovie(response.data);
-
       })
       .catch(error => {
         console.error(error);
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, []);
+  },[]);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }

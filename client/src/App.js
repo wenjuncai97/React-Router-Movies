@@ -13,10 +13,10 @@ export default function App () {
   useEffect(() => {
     const getMovies = () => {
       axios
-        .get('http://localhost:5001/api/movies') // Study this endpoint with Postman
+        .get('http://localhost:5001/api/movies/') // Study this endpoint with Postman
         .then(response => {
           // Study this response with a breakpoint or log statements
-          // console.log(response)
+          // console.log(response.data)
           // and set the response data as the 'movieList' slice of state
           setMovieList(response.data);
         })
@@ -34,11 +34,10 @@ export default function App () {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-
-      <Route exact path='/' >
+      <Route exact path="/" >
         <MovieList movies={movieList}/>
       </Route>
-      <Route path='/movies/:id'>
+      <Route path="/movies/:id">
         <Movie />
       </Route>
     </div>
